@@ -1,0 +1,94 @@
+
+
+
+
+
+
+
+
+
+
+	
+	
+
+
+	
+	
+
+
+  
+
+ 
+
+
+
+
+
+
+
+
+
+
+	//console.log("no pub nuggsid : 72856597");
+	var nuggCall= new Image();
+	var adserverurl= encodeURIComponent("http://as.ebz.io/api/nCookie.htm?NUGGVARS");
+	var nuggrid= encodeURIComponent(location.href);
+	nuggCall.src = "http://beead.nuggad.net/bk?nuggn=104260390&nuggsid=72856597&nuggrid="+nuggrid+"&nuggl="+adserverurl+"&random="+Math.random();
+
+
+
+
+
+
+
+	var _comscore = _comscore || [];
+	
+		_comscore.push({ c1: "8", c2: "9881420" ,c3: "3000000000000000000" });
+	
+	(function() {
+	var s = document.createElement("script"), el = document.getElementsByTagName("script")[0]; s.async = true;
+	s.src = (document.location.protocol == "https:" ? "https://sb" : "http://b") + ".scorecardresearch.com/beacon.js";
+	el.parentNode.insertBefore(s, el);
+	})();
+
+
+function beead_upload(){
+	
+	return true;
+}
+
+function beead_hasNoAds(){
+		if(typeof(BeeadAds)!='undefined' && typeof(BeeadAds.onNoAds)!='undefined')
+			BeeadAds.onNoAds();	
+		if(typeof(beead_noAds)!='undefined')	
+			beead_noAds();
+		return false;		
+}
+function beead_hasAds(){
+		if(typeof(BeeadAds)!='undefined' && typeof(BeeadAds["onAds"])!='undefined')
+				BeeadAds.onAds();
+		if(typeof(this["beead_activeAds"])!='undefined')
+				beead_activeAds();
+}	
+function beead_failed(){
+	beead_upload();
+	
+	
+	
+	return false;
+} 
+
+
+ 
+
+//alert("localstorage : ");
+
+
+
+function beead_show(){
+	beead_failed();
+	return false;
+}
+beead_hasNoAds();
+
+		beead_show();

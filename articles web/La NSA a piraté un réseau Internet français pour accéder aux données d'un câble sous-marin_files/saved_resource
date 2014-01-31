@@ -1,0 +1,298 @@
+;(function(window, document) {
+    
+
+    var EZ = EZ || { },
+        console = console || window.console,
+        hasOwn = Object.prototype.hasOwnProperty,
+        ext = function(object, source, noCall, noOverwrite){
+            var index;
+            if(!noCall && typeof source == 'function') source = source();
+            for(index in source) if(hasOwn.call(source, index) && (noOverwrite ? !(index in object) : true)) object[index] = source[index];
+            return object;
+        };
+
+
+    function Marker(params){
+        var opts = {type: 'lemonde', customs: '', saveCustoms: '', uid: '',
+                    tmst: new Date().getTime()+"", fmt: '', frm: '', sfOrds: null, eventData: null,
+                    social: null, dbg: {}, withIfr: false, lsDone: false, lsSegsDone: false,
+                    posted: []},
+            self = this;
+
+        if(!(self instanceof Marker)) return new Marker(params);
+
+        ext(self, opts);
+        ext(self,params);
+
+        self.saveCustoms = self.customs;
+
+        
+            if (typeof navigator != 'undefined' && typeof localStorage != 'undefined') {
+                    var uas = 'Safari'.split(','),
+                            h = 0;
+                    for(h = 0; h< uas.length; h++){
+                        var currUA = (uas[h]).replace(/^\s+|\s+$/g, '');
+                        switch(currUA){
+                            case 'Safari':
+                                if(typeof navigator.vendor != 'undefined' && navigator.vendor.indexOf('Apple') >= 0){
+                                    self.withIfr = true;
+                                }
+                                break;
+                            case 'Firefox':
+                                if(typeof navigator.userAgent != 'undefined' && navigator.userAgent.indexOf('Firefox') >= 0){
+                                    self.withIfr = true;
+                                }
+                                break;
+                            case 'Chrome':
+                                if(typeof navigator.vendor != 'undefined' && navigator.vendor.indexOf('Google') >= 0){
+                                    self.withIfr = true;
+                                }
+                                break;
+                            case 'IE':
+                                if(typeof navigator.userAgent != 'undefined' && navigator.userAgent.indexOf('MSIE') >= 0){
+                                    self.withIfr = true;
+                                }
+                                break;
+                        }
+                    }
+                }
+
+        self.segs = {1003:[2126,2125,7840,7843,7849,7847,2127,7833,4285,3103,1980,1824,3097,3100,3102,3127,3130,3132,4063,4289,9369],1039:[3668]};
+
+        
+        if(self.withIfr){
+            var lsSegsListener = function(event){
+                if(event && event.data){
+                    self.posted.push(event.data);
+                    if(typeof event.data !== 'string'){
+                        if(!self.lsSegsDone){
+                            self.segs = event.data;
+                            self.lsSegsDone = true;
+                        }
+                    }
+                }
+            };
+            if (window.addEventListener){
+                window.addEventListener("message", lsSegsListener, false);
+            } else {
+                window.attachEvent("onmessage", lsSegsListener);
+            }
+
+            self.addIframe('http://ls.ezakus.net/marker/iframe/lssegs', 'ezLSSegs');
+        }
+        
+
+    }
+
+    ext(EZ,{ Marker: Marker, encode: encodeURIComponent });
+
+    ext(EZ.Marker.prototype, {
+        getSegments: function (key) {
+            var self = this;
+            if (self.segs[key])
+                return self.segs[key];
+            else
+                return [];
+        },
+        ckok: function () {
+            document.cookie = 'ez=ok;expires=' + new Date(new Date().getTime() + 1800000).toGMTString() + ';path=/;';
+            if (document.cookie.indexOf('ez=ok') >= 0) {
+                document.cookie = 'ez=ok;expires=' + new Date(new Date().getTime() - 60000).toGMTString();
+                return 1;
+            } else {
+                return 0;
+            }
+        },
+        triggerSocialHit: function(socialData){
+            var self = this;
+            self.social = socialData;
+            self.mark();
+        },
+        event: function(eventData){
+            var self = this;
+            self.eventData = eventData;
+            self.mark();
+        },
+        addIframe: function(src, id){
+            var ils = document.createElement('iframe');
+            ils.src = src;
+            ils.id = id;
+            ils.style.height = '0px';
+            ils.style.width = '0px';
+            ils.style.padding = '0px';
+            ils.style.backgroundColor = 'transparent';
+            ils.style.border = '0px none transparent';
+            ils.style.overflow = 'hidden';
+            var body = document.getElementsByTagName('body')[0];
+            body.appendChild(ils);
+        }
+    });
+
+    
+    
+    ext(EZ.Marker.prototype, {
+        mark: function(){
+            var self = this,
+                src = '',
+                im = null,
+                queryString = '',
+                all = '',
+                ref = EZ.encode(document.referrer),
+                dest = 'http://lemonde.ezakus.net/marker/image',
+                withIfr = false;
+            try {
+                if(self.withIfr){
+                    dest = 'http://ls.ezakus.net/marker/iframe';
+                    var lsListener = function(event){
+                        if(event && event.data && event.data == "done"){
+                            self.lsDone = true;
+                        }
+                    };
+                    if (window.addEventListener){
+                        window.addEventListener("message", lsListener, false);
+                    } else {
+                        window.attachEvent("onmessage", lsListener);
+                    }
+
+                    self.addIframe('http://ls.ezakus.net/marker/iframe/' + self.type + '/lsinfo', 'ezLSInfofr', true);
+                }
+                src = dest+'/' + self.type;
+                self.customs = self.saveCustoms;
+                if (self.ckok() < 1) {
+                    self.customs += '&ezC=ezCkKo';
+                }
+                if(self.eventData){
+                    var strData = self.eventData;
+                    if(typeof self.eventData !== 'string')
+                        strData = window.JSON.stringify(self.eventData);
+                    self.customs += '&ezC=' + EZ.encode('type:event')+'&ezC=' + EZ.encode('event:'+strData);
+                }
+                if(self.social){
+                    self.customs += '&ezC=' + EZ.encode(self.social);
+                }
+                queryString = '&hash='+EZ.encode(window.location.hash)+'&tjs=' + self.tmst + self.uid + self.fmt + self.frm + self.customs;
+                all = src + '?' + 'cref=' + ref + queryString;
+                if(all.length > 2048){
+                    var much = all.length - 2047;
+                    ref = ref.substring(0, ref.length - much);
+                    all = src + '?' + 'cref=' + ref + queryString;
+                }
+                if(self.withIfr){
+                    if(self.lsDone)
+                        self.addIframe(all, 'ezLSIfr');
+                    else
+                        window.setTimeout(function(){ self.addIframe(all, 'ezLSIfr'); }, 500);
+                }else{
+                    im = new Image();
+                    im.src = all;
+                    im.onload = function () {
+                        im.onload = null;
+                    };
+                }
+            } catch (e) {
+                console.log(e);
+            }
+        }
+    });
+    
+    
+    ext(EZ.Marker.prototype, {
+        addFBHandlers: function () {
+            var self = this;
+            try {
+                if (typeof window.FB != 'undefined' && typeof window.FB.Event != 'undefined' && typeof window.FB.Event.subscribe != 'undefined') {
+
+                    window.FB.Event.subscribe('edge.create', function (url) { self.triggerSocialHit('fbec:' + url); });
+                    window.FB.Event.subscribe('edge.remove', function (url) { self.triggerSocialHit('fber:' + url); });
+                    window.FB.Event.subscribe('message.send', function (url) { self.triggerSocialHit('fbms:' + url); });
+                    window.FB.Event.subscribe('comment.create', function (response) { self.triggerSocialHit('fbcc:' + response.href); });
+                    window.FB.Event.subscribe('comment.remove', function (response) { self.triggerSocialHit('fbcr:' + response.href); });
+                }
+            }
+            catch (e) {
+                console.log(e);
+            }
+        }
+    });
+    
+    try {
+        var opt = {}, ezMarker;
+        if (window.ezMarkerType) { opt.type = window.ezMarkerType; }
+        if (window.ezUID) { opt.uid = '&uid=' + window.ezUID; }
+        if (window.ezFmt) { opt.fmt = '&fmt=' + window.ezFmt; }
+        if (top != self) { opt.frm = '&frm=1'; }
+        if (window.ezFrm) { opt.frm = '&frm=' + window.ezFrm; }
+        if (window.ezSfOrds) { opt.sfOrds = window.ezSfOrds; }
+        if (window.ezC) {
+            if (Object.prototype.toString.call(window.ezC) == '[object Array]') {
+                opt.customs = '';
+                for (var i = 0; i < window.ezC.length; i++) {
+                    opt.customs += '&ezC=' + EZ.encode(window.ezC[i]);
+                }
+            } else {
+                opt.customs = '&ezC=' + EZ.encode(window.ezC);
+            }
+        }
+
+        if (window.ezTactAdsIntegration) {
+            var tactads = document.createElement('script');
+            tactads.type = 'text/javascript';
+            tactads.async = true;
+            tactads.src = 'https://cdn.tactads.com/id.js';
+            var s = document.getElementsByTagName('script')[0];
+            s.parentNode.insertBefore(tactads, s);
+
+            window.tactadsInit = function() {
+                Tactads.identify({
+                    partner: 'orange-open'
+                })
+                .then(function(deviceId) {
+                    if(!opt.customs)
+                        opt.customs = '';
+                    opt.customs += '&ezC=tactads:' + deviceId;
+                    window.ezMarker = EZ.Marker(opt);
+                    window.ezMarker.mark();
+                })
+                .fail(function(err) {
+                    window.ezMarker = EZ.Marker(opt);
+                    window.ezMarker.mark();
+                })
+                .done();
+            };
+        }else{
+            window.ezMarker = EZ.Marker(opt);
+            window.ezMarker.mark();
+        }
+
+        
+        if (typeof window.FB != 'undefined') {
+            window.ezMarker.addFBHandlers();
+        }
+        else {
+            window.setTimeout(function(){ window.ezMarker.addFBHandlers(); }, 500);
+        }
+        
+
+        window.addScriptAsync = function(url,id) {
+            var script = document.createElement("script");
+            if (id) script.setAttribute("id",id);
+            script.setAttribute("type","text/javascript");
+            script.setAttribute("src",url);
+            document.getElementsByTagName("head").item(0).appendChild(script);
+        };
+
+        /*cookie sync*/
+        new Image().src ='http://ib.adnxs.com/getuid?http://listener.ezakus.net/marker/sync/appnexus/$UID';
+        /*full segment sync*/
+        
+        /*single segment pixel*/
+        
+
+        if(window.ezClb && typeof window.ezClb == 'function'){
+            window.ezClb.call(null);
+        }
+
+    } catch (err) {
+        console.log(err);
+    }
+})(window, document);

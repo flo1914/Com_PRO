@@ -1,0 +1,617 @@
+/**
+*
+* RESET
+*
+*/
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, font, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  outline: 0;
+  font-weight: inherit;
+  font-style: inherit;
+  font-size: 100%;
+  font-family: inherit;
+  vertical-align: baseline;
+}
+body {
+  background: #fff;
+  color: black;
+  line-height: 1;
+  position: relative;
+  margin: 6px;
+  padding: 1px;
+  font-size:13px;    
+  padding-bottom: 0;
+}
+}
+ol, ul {list-style: none;}
+/* tables still need 'cellspacing="0"' in the markup */
+table {
+  border-collapse: separate;
+  border-spacing: 0;
+}
+caption, th, td {
+  font-weight: normal;
+  text-align: left;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {content: "";}
+blockquote, q {quotes: "" "";}
+
+
+
+/**
+*
+*  CLEARFIX
+*
+*/
+
+/* new clearfix */
+.clearfix:after {
+  visibility: hidden;
+  display: block;
+  font-size: 0;
+  content: " ";
+  clear: both;
+  height: 0;
+}
+* html .clearfix             { zoom: 1; } /* IE6 */
+*:first-child+html .clearfix { zoom: 1; } /* IE7 */
+
+
+/**
+*
+*  REGLES GENERALES
+*
+*/
+
+body {font-family:Arial, Helvetica, sans-serif;}
+strong {font-weight:bold;}
+em {font-style:italic;}
+img {vertical-align:middle}
+label[for], input[type="submit"] {cursor:pointer;}
+input,
+texarea {font-family:Arial, Helvetica, sans-serif;}
+a {color:#025484;}
+html,
+body {
+margin:0;
+padding:0;
+font-family:Arial, Helvetica, sans-serif;
+}
+.break {
+clear:both;
+}
+/* Partners */
+
+#partenariat89_blockHeader {
+  padding-bottom: 10px !important;
+}
+
+#partenariat89_dating {
+  padding-bottom: 30px !important;
+}
+
+#partenariat89_hotel {
+  padding-bottom: 30px !important;
+}
+
+
+
+.partenariat89masterblock .partenariat89 .title89 strong {
+  font-size: 15pt;
+}
+
+.partenariat89masterblock .partenariat89 .title89 {
+  font-size: 15pt;
+}
+
+.partners-title {
+  display: block;
+  border-top: 1px solid #dcdbe3;
+  color: #000000;
+  font-weight: bold;
+  padding: 10px 5px;
+  font-size: 14px;
+  background: url(layout/puce-services.png) 280px 10px no-repeat;
+  clear: both;
+}
+.partners-title:hover,  .selected {
+  background: url(layout/puce-services-on.png) 280px 10px no-repeat;
+  color: #e3001e;
+}
+.partners-subtitle {
+  display: block;
+  color: #000000; 
+  padding: 10px 0px 10px 5px;
+  font-size: 14px;
+  clear: both;
+}
+.partners-container {
+  background-color: #F8F8FA;
+}
+.partners-container:after {
+  display: block;
+  clear: both;
+  content: ".";
+  visibility: hidden;
+  line-height: 0;
+  height: 0;
+}
+.partners-content {
+  padding: 5px;
+}
+.partners-content form {
+  text-align: right;
+}
+.w-row,
+.partners-field {
+  display: block;
+  padding: 2px 0px;
+  clear: both;
+}
+.w-row:after,
+.partners-field:after {
+  display: block;
+  clear: both;
+  content: ".";
+  visibility: hidden;
+  line-height: 0;
+  height: 0;
+}
+html body div#partenariat89_job.partenariat89 #boutRecherche,
+.partners-submit button,
+.partners-submit-button {
+  background: url(layout/button-services.png) 0px 0px no-repeat;
+  border: none;
+  text-indent: -5000px;
+  width: 82px;
+  height: 23px;
+  margin: 5px 0px 10px 0px;
+  cursor:hand;
+  cursor:pointer;
+  clear: both;
+  float: right;
+}
+.partners-field label {
+  display: block;
+  width: 95px;
+  float: left;
+  text-align: right;
+  padding-top: 3px;
+  padding-right: 5px;
+}
+
+/* -- voyages -- */
+html body div#partenariat89_voyage.partenariat89 {
+font-size:14px;
+}
+html body div#partenariat89_voyage.partenariat89 div#me p#esvLogo {
+bottom:-20px;
+}
+html body div#partenariat89_voyage.partenariat89 div.footer-voyages {
+margin-top:10px;
+}
+html body div#partenariat89_voyage.partenariat89 div#me form#formMEH fieldset#submitBtMEH, 
+html body div#partenariat89_voyage.partenariat89 div#me form#formMEC fieldset#submitBtMEC, 
+html body div#partenariat89_voyage.partenariat89 div#me form#formMEV fieldset#submitBtMEV {
+top: 242px;
+}
+html body div#partenariat89_voyage.partenariat89 div#me form#formMEC fieldset#dateMEC p#dateDebutMEC select#jourDebutMEC,
+html body div#partenariat89_voyage.partenariat89 div#me form#formMEC fieldset#dateMEC p#dateFinMEC select#jourFinMEC, 
+html body div#partenariat89_voyage.partenariat89 div#me form#formMEC fieldset#dateMEC p#dateDebutMEC select#moisDebutMEC,
+html body div#partenariat89_voyage.partenariat89 div#me form#formMEC fieldset#dateMEC p#dateFinMEC select#moisFinMEC,
+html body div#partenariat89_voyage.partenariat89 div#me form#formMEC fieldset#dateMEC p#dateDebutMEC img#calendrierMECDebutIcon,
+html body div#partenariat89_voyage.partenariat89 div#me form#formMEC fieldset#dateMEC p#dateFinMEC img#calendrierMECFinIcon {
+float:left;
+}
+html body div#partenariat89_voyage.partenariat89 div#me form#formMEC fieldset#dateMEC p#dateDebutMEC select#heureDebutMEC, 
+html body div#partenariat89_voyage.partenariat89 div#me form#formMEC fieldset#dateMEC p#dateFinMEC select#heureFinMEC {
+float:left;
+margin:0;
+}
+html body div#partenariat89_voyage.partenariat89 div.footer-voyages {
+font-size:10px;
+}
+html body div#partenariat89_voyage.partenariat89 div.footer-voyages a {
+color:red;
+}
+/* -- learning -- */
+html body div#partenariat89_learning.partenariat89 div#partner_anglais.partners-container div#english-learning-content * {
+margin: 3px;
+padding: 1px;
+}
+html body div#partenariat89_learning.partenariat89 div#partner_anglais.partners-container div#english-learning-content {
+margin: 6px;
+padding: 1px;
+}
+html body div#partenariat89_learning.partenariat89 div#partner_anglais.partners-container div#english-learning-content div.desc {
+font-size: 14px;
+padding-top: 5px;
+text-align: center;
+}
+html body div#partenariat89_learning.partenariat89 div#partner_anglais.partners-container div#english-learning-content div a.go {
+background: none repeat scroll 0 0 #FE0000;
+color: #FFFFFF;
+display: block;
+font-size: 14px;
+margin: 7px 30px 0;
+padding: 5px 20px;
+text-align: center;
+text-decoration: none;
+}
+html body div#partenariat89_learning.partenariat89 .text a {
+text-decoration: none;
+color: black;
+}
+/* -- auto -- */
+html body div#partenariat89_auto.partenariat89 div#argus-auto-content {
+margin: 6px;
+padding: 1px;
+font-size:13px;
+}
+html body div#partenariat89_auto.partenariat89 div#argus-auto-content a {
+    margin: 0 auto;
+    padding: 5px;
+    text-decoration: none;
+}
+html body div#partenariat89_auto.partenariat89 div#argus-auto-content a {
+    color: black;
+    font-weight: bold;
+}
+html body div#partenariat89_auto.partenariat89 div#argus-auto-content a:hover {
+    text-decoration: underline;
+}
+html body div#partenariat89_auto.partenariat89 div#argus-auto-content .gr-item {
+    background: none repeat scroll 0 0 #EEEEEE;
+    margin: 10px 5px 0;
+    position: relative;
+}
+html body div#partenariat89_auto.partenariat89 div#argus-auto-content .gr-item .gr-item-picture {
+    float: left;
+}
+html body div#partenariat89_auto.partenariat89 div#argus-auto-content .gr-item .gr-item-link {
+    background: none repeat scroll 0 0 #CCCCCC;
+    clear: both;
+    font-weight: bold;
+    padding: 2px 10px;
+    text-align: right;
+}
+html body div#partenariat89_auto.partenariat89 div#argus-auto-content .gr-item .gr-item-title {
+    font-weight: bold;
+}
+html body div#partenariat89_auto.partenariat89 div#argus-auto-content .gr-item .gr-item-text {
+    position: absolute;
+    right: 5px;
+    top: 0;
+}
+html body div#partenariat89_auto.partenariat89 div#argus-auto-content .gr-item-link4 {
+    margin-top: 10px;
+    text-align: right;
+}
+html body div#partenariat89_auto.partenariat89 div#argus-auto-content .gr-item-link4 a {
+    color: #E3001E;
+    text-decoration: underline;
+}
+html body div#partenariat89_auto.partenariat89 div#argus-auto-content .gr-item-link4 a:hover {
+    font-weight: bold;
+}
+html body div#partenariat89_auto.partenariat89 div#partner-auto-argus {
+    background: url("http://www.argusauto.com/img/logos/argus_18.gif") no-repeat scroll 240px center transparent;
+}
+html body div#partenariat89_auto.partenariat89 div#partenariat89_auto #argus-auto-content {
+    padding-top: 5px;
+}
+/* -- job -- */
+body.widget #boutRecherche {
+  background: url(layout/button-services.png) 0px 0px no-repeat;
+  border: none;
+  text-indent: -5000px;
+  width: 82px;
+  height: 23px;
+  margin: 5px 0px 10px 0px;
+  cursor:hand;
+  cursor:pointer;
+  clear: both;
+  float: right;
+}
+body.widget div.content {
+  margin:0;
+  padding:0;
+}
+body.widget div.container div.header h1#title {
+  display: block;
+  color: #ffffff; 
+  padding: 10px 0px 10px 5px;
+  font-size: 14px;
+  background-color: #000000 !important ;
+  clear: both;
+}
+body.widget div.container div.header h1#title img {
+  height:32px;
+  position: absolute;
+  right: 2px;
+  top: 1px;
+}
+body.widget div.container div.header h1#title span {
+  font-weight: bold;
+}
+body.widget fieldset {
+  border:none;
+  margin:0;
+  padding:0;
+}
+body.widget #rechAv {
+  color: #E3001E;
+  text-decoration: underline;
+}
+body.widget a.logo {
+    position: absolute;
+    right: 2px;
+    top: 2px;
+}
+body.widget div#partner-job-location {
+    float: right;
+    width: 180px;
+}
+html body div#partenariat89_job.partenariat89 div#partner-job-kelformation {
+    position: relative;
+}
+html body div#partenariat89_job.partenariat89 div.container div.header h1#title a.logo {
+  position: absolute;
+  right: 2px;
+  top: 3px;
+}
+
+html body div#partenariat89_job.partenariat89 div#partner-job-kelformation a.logo {
+    position: absolute;
+    right: 2px;
+    top: 2px;
+}
+body.widget select,
+html body div#partenariat89_job.partenariat89 select {
+    float: right;
+    width: 186px;
+}
+body.widget input,
+html body div#partenariat89_job.partenariat89 input {
+    float: right;
+    width: 186px;
+}
+body.widget td,
+html body div#partenariat89_job.partenariat89 td {
+  
+  font-size:13px;
+  text-align:right;
+}
+body.widget label,
+html body div#partenariat89_job.partenariat89 .w-row label,
+html body div#partenariat89_job.partenariat89 .partners-field label {
+    display: block;
+    float: left;
+    padding-right: 5px;
+    padding-top: 3px;
+    text-align: right;
+    width: 80px;
+}
+/* CADREMPLOI */
+.cadremploi {
+margin-bottom:15px;
+}
+.cadremploi li {
+margin:0;
+margin-bottom:10px;
+padding:0;
+list-style-type: none;
+}
+.cadremploi #cadremploi-vignette {
+width:80px;
+float:left;
+}
+.cadremploi #cadremploi-vignette a {
+color:#ff0000;
+}
+.cadremploi #cadremploi-desc {
+float:left;
+width:200px;
+margin:0 0 0 10px;
+}
+.cadremploi #partner-job-cadremploi .logo img {
+height:30px;
+}
+.cadremploi #partner-job-cadremploi .logo {
+position: absolute;
+right: 2px;
+top: 3px;
+}
+.cadremploi .title a {
+text-decoration:none;
+font-weight:bold;
+color:#000;
+}
+.cadremploi .sector,
+.cadremploi .society {
+font-size:10px;
+}
+.cadremploi #cadremploi-footer {
+float:right;
+margin-bottom:5px;
+}
+.cadremploi #cadremploi-footer a {
+color:#ff0000;
+}
+/* NESPRESSO */
+#partenariat89_nespresso.partenariat89 {
+background-color:#f1f0f5;
+padding:10px;
+}
+#partenariat89_nespresso.partenariat89 p {
+font-size:11px;
+padding:10px;
+}
+#partenariat89_nespresso.partenariat89 .title89 strong {
+color:#000000;
+text-transform:none;
+}
+#partenariat89_nespresso.partenariat89 .title89 strong em.placeholder {
+font-style:normal;
+}
+#partenariat89_nespresso.partenariat89 .image {
+text-align:center;
+}
+/* -- student -- */
+#partenariat89_student.partenariat89 #student-button {
+background: none repeat scroll 0 0 #FE0000;
+color: #FFFFFF;
+display: block;
+font-size: 14px;
+margin: 7px 30px 0;
+padding: 5px 20px;
+text-align: center;
+text-decoration: none;
+}
+#partenariat89_student.partenariat89 #student-button a {
+color:#fff;
+text-decoration: none;
+}
+#partenariat89_student.partenariat89 #student-button a:hover {
+text-decoration: underline;
+}
+/* ticketac */
+#partenariat89_ticketac {
+padding: 0 10px;
+}
+#partner_ticketac {
+padding:0;
+width:292px;
+overflow: hidden;
+}
+#partner_ticketac p {
+font-size:11px;
+padding:10px;
+}
+#partner_ticketac .title89 strong {
+color:#000000;
+text-transform:none;
+}
+#partner_ticketac ul {
+width:1510px;
+}
+#partner_ticketac li {
+list-style-type:none;
+width:302px;
+float:left;
+}
+.ticketac-content {
+background-color:#f1f0f5
+}
+.ticketac-vignette {
+float:left;
+width:125px;
+}
+.ticketac-desc {
+float:right;
+width:150px;
+}
+.ticketac-desc p {
+padding:8px 0;
+}
+.ticketac-desc .title a {
+color:#54789d;
+font-weight:bold;
+font-size:14px;
+text-decoration: none;
+}
+.ticketac-desc .tarif2 {
+color:#fe6f18;
+font-size:16px;
+text-align: left;
+}
+.ticketac-desc .nom_salle {
+color:#8f8e8d;
+font-size:10px;
+}
+.ticketac-desc .reduction {
+text-align: center;
+color:#fe6f18;
+font-size:12px;
+background-color:#e0deda;
+}
+.ticketac-footer {
+background-color: #fff;
+width:302px;
+}
+.ticketac-footer-left {
+float:left;
+width:150px;
+}
+.ticketac-footer-right {
+float:right;
+width:85px;
+}
+.ticketac-footer-left a.go {
+background: none repeat scroll 0 0 #FE0000;
+color: #FFFFFF;
+display: block;
+font-size: 12px;
+font-weight:bold;
+margin: 7px 5px 0;
+padding: 5px 10px;
+text-align: center;
+text-decoration: none;
+width:138px;
+}
+.ticketac-footer ul.pager {
+border: medium none;
+display: block;
+list-style: none outside none;
+margin-bottom: 0;
+margin-left: auto;
+margin-right: auto;
+padding: 0;
+text-align: center;
+width:156px;
+}
+.ticketac-footer ul.pager li {
+float:left;
+list-style-type: none;
+display: inline-block;
+}
+.ticketac-footer ul.pager li a {
+background: url("/sites/all/modules/custom/partenariat89/layout/bg-pagination.png") no-repeat scroll -22px 9px transparent;
+border: 0 solid black;
+display: block;
+height: 15px;
+margin: 0 5px;
+padding: 0;
+text-decoration: none;
+width: 10px;
+}
+.ticketac-footer ul.pager li a.prev {
+background-position: left -39px;
+height: 15px;
+margin-top: 8px;
+width: 20px;
+}
+.ticketac-footer ul.pager li a.next {
+background-position: right -39px;
+height: 15px;
+margin-top: 8px;
+width: 16px;
+}
+.ticketac-footer ul.pager li.point a {
+padding-top: 8px;
+}
+.ticketac-footer ul.pager li a.actif, .carrousel.small .pager li a:hover {
+background-position: -22px -11px;
+}
+

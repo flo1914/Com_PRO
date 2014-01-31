@@ -1,0 +1,1 @@
+/*<167038>*/addEvtListener(window, 'load', function() {genCopyrights();});/*</167038>*/

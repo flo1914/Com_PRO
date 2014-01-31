@@ -1,0 +1,92 @@
+function OAS_RICH(position) {
+if (position == 'x01') {
+document.write ('<!--inib-->\n');
+document.write ('<img src="http://uniprix.nouvelobs.com/5/RUE89/RG_RUE89/L14/2109991644/x01/OasDefault/Inib_x01/inibator.html/576a4e4349464c6b435541414449696d?_RM_EMPTY_&" style="display: none">');
+}
+if (position == 'x10') {
+document.write ('<script type=');
+document.write ("'");
+document.write ('text/javascript');
+document.write ("'");
+document.write (' language=');
+document.write ("'");
+document.write ('javascript');
+document.write ("'");
+document.write ('>\n');
+document.write ('\n');
+document.write ('var cw = 990; // specify content width\n');
+document.write ('var cp = 0; // specify the content padding if desired\n');
+document.write ('var smrz = 2147483642; // specify z-index\n');
+document.write ('var to = 10; // specify top offset pixels\n');
+document.write ('var bo = 10; // specify bottom offset pixels\n');
+document.write ('var lo = 10;  // specify left offset pixels (from content)\n');
+document.write ('var multi = 1; // specify if allow other ads\n');
+document.write ('var smrx = 300; // specify overlay size horizontal pixels\n');
+document.write ('var smry = 250; // specify overlay size vertical pixels\n');
+document.write ('\n');
+document.write ('try{\n');
+document.write (' var s=document.createElement(');
+document.write ("'");
+document.write ('script');
+document.write ("'");
+document.write (');\n');
+document.write (' s.id=');
+document.write ("'");
+document.write ('specific_rome_js');
+document.write ("'");
+document.write (';\n');
+document.write (' s.type=');
+document.write ("'");
+document.write ('text/javascript');
+document.write ("'");
+document.write (';\n');
+document.write (' s.src=');
+document.write ("'");
+document.write ('//rome.specificclick.net/rome/rome.js?l=155939&geo=3&t=j&cw=');
+document.write ("'");
+document.write ('+cw+');
+document.write ("'");
+document.write ('&cp=');
+document.write ("'");
+document.write ('+cp+');
+document.write ("'");
+document.write ('&smrx=');
+document.write ("'");
+document.write ('+smrx+');
+document.write ("'");
+document.write ('&smry=');
+document.write ("'");
+document.write ('+smry+');
+document.write ("'");
+document.write ('&to=0&bo=0&lo=0');
+document.write ("'");
+document.write (';\n');
+document.write (' document.body.appendChild(s);\n');
+document.write ('} catch(e) {}\n');
+document.write ('\n');
+document.write ('</script>\n');
+document.write ('\n');
+document.write ('<img src="http://uniprix.nouvelobs.com/5/RUE89/RG_RUE89/L14/1764064742/x10/OasDefault/ADVIVA_RUE89_fina_Habillage_0413/ADVIVA_RUE89_fina_news-Habillage_0413.html/576a4e4349464c6b435541414449696d?_RM_EMPTY_&" style="display: none">');
+}
+if (position == 'Top2') {
+document.write ('<a href="http://uniprix.nouvelobs.com/5c/RUE89/RG_RUE89/137321496/Top2/OasDefault/default/empty.gif/576a4e4349464c6b435541414449696d" target="_top"><img src="http://uniprix.nouvelobs.com/5/RUE89/RG_RUE89/137321496/Top2/OasDefault/default/empty.gif/576a4e4349464c6b435541414449696d?"  width="1" height="1" alt="" BORDER=0 border="0"></a>');
+}
+if (position == 'Bottom') {
+document.write ('<a href="http://uniprix.nouvelobs.com/5c/RUE89/RG_RUE89/1663636283/Bottom/OasDefault/default/empty.gif/576a4e4349464c6b435541414449696d" target="_top"><img src="http://uniprix.nouvelobs.com/5/RUE89/RG_RUE89/1663636283/Bottom/OasDefault/default/empty.gif/576a4e4349464c6b435541414449696d?"  width="1" height="1" alt="" BORDER=0 border="0"></a>');
+}
+if (position == 'Middle') {
+document.write ('<a href="http://uniprix.nouvelobs.com/5c/RUE89/RG_RUE89/L14/130463948/Middle/OasDefault/Ap_Rue89_MVA2B_1113/MVDB_banniere_300x250_V1.gif/576a4e4349464c6b435541414449696d" target="_top"><img src="http://uniprix.nouvelobs.com/5/RUE89/RG_RUE89/L14/130463948/Middle/OasDefault/Ap_Rue89_MVA2B_1113/MVDB_banniere_300x250_V1.gif/576a4e4349464c6b435541414449696d?"  alt=""  border="0"></a>');
+}
+if (position == 'Middle1') {
+document.write ('<a href="http://uniprix.nouvelobs.com/5c/RUE89/RG_RUE89/1474802304/Middle1/OasDefault/default/empty.gif/576a4e4349464c6b435541414449696d" target="_top"><img src="http://uniprix.nouvelobs.com/5/RUE89/RG_RUE89/1474802304/Middle1/OasDefault/default/empty.gif/576a4e4349464c6b435541414449696d?"  width="1" height="1" alt="" BORDER=0 border="0"></a>');
+}
+if (position == 'Middle2') {
+document.write ('<a href="http://uniprix.nouvelobs.com/5c/RUE89/RG_RUE89/1598850160/Middle2/OasDefault/default/empty.gif/576a4e4349464c6b435541414449696d" target="_top"><img src="http://uniprix.nouvelobs.com/5/RUE89/RG_RUE89/1598850160/Middle2/OasDefault/default/empty.gif/576a4e4349464c6b435541414449696d?"  width="1" height="1" alt="" BORDER=0 border="0"></a>');
+}
+if (position == 'Middle3') {
+document.write ('<a href="http://uniprix.nouvelobs.com/5c/RUE89/RG_RUE89/1790052112/Middle3/OasDefault/default/empty.gif/576a4e4349464c6b435541414449696d" target="_top"><img src="http://uniprix.nouvelobs.com/5/RUE89/RG_RUE89/1790052112/Middle3/OasDefault/default/empty.gif/576a4e4349464c6b435541414449696d?"  width="1" height="1" alt="" BORDER=0 border="0"></a>');
+}
+if (position == 'Right2') {
+document.write ('<a href="http://uniprix.nouvelobs.com/5c/RUE89/RG_RUE89/2143990371/Right2/OasDefault/default/empty.gif/576a4e4349464c6b435541414449696d" target="_top"><img src="http://uniprix.nouvelobs.com/5/RUE89/RG_RUE89/2143990371/Right2/OasDefault/default/empty.gif/576a4e4349464c6b435541414449696d?"  width="1" height="1" alt="" BORDER=0 border="0"></a>');
+}
+}
